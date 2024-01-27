@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="user-detail">
+    <mat-card *ngIf="user">
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Back to User List
+      </button>
+      <mat-card-header>
+        <div
+          mat-card-avatar
+          class="user-avatar"
+          [style.background-image]="'url(' + user.avatar + ')'"
+        ></div>
+        <mat-card-title
+          >{{ user.first_name }} {{ user.last_name }}</mat-card-title
+        >
+        <mat-card-subtitle>ID: {{ user.id }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>

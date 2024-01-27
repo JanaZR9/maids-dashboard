@@ -1,0 +1,17 @@
+header.component.css .toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.search-container {
+  margin-left: 16px;
+}

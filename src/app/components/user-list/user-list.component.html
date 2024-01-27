@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="user-list-container">
+    <app-header (searchChanged)="onSearchChanged($event)"></app-header>
+
+    <h1 class="user-list-title">Users</h1>
+
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+    <div class="user-cards-container">
+      <mat-card
+        *ngFor="let user of users"
+        class="user-card"
+        (click)="fetchUserDetails(user.id)"
+      >
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            class="user-avatar"
+            [style.background-image]="'url(' + user.avatar + ')'"
+          ></div>
+          <mat-card-title
+            >{{ user.first_name }} {{ user.last_name }}</mat-card-title
+          >
+          <mat-card-subtitle>ID: {{ user.id }}</mat-card-subtitle>
+        </mat-card-header>
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/user', user.id]"
+        >
+          View Details
+        </button>
+      </mat-card>
+    </div>
+    <div>
+      <mat-paginator
+        [length]="25"
+        [pageSize]="6"
+        (page)="onPageChange($event)"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>
